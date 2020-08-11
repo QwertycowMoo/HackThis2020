@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="styles.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Welcome to Firebase Hosting</title>
@@ -8,10 +9,8 @@
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/7.17.2/firebase-app.js"></script>
     <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/7.17.2/firebase-firestore.js"></script>
     <script defer src="/__/firebase/7.17.2/firebase-auth.js"></script>
-    <script defer src="/__/firebase/7.17.2/firebase-database.js"></script>
-    <script defer src="/__/firebase/7.17.2/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/7.17.2/firebase-storage.js"></script>
     <!-- initialize the SDK after all desired features are loaded -->
     <script defer src="/__/firebase/init.js"></script>
 
@@ -31,17 +30,37 @@
     </style>
   </head>
   <body>
-    <div id="message">
+    <div id="message" class="dark-primary-color">
       <h2>Welcome</h2>
       <h1>Firebase Hosting Setup Complete</h1>
       <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <button id="btnTeacher" onclick="createRoom()">I'm a teacher</button>
+      <button id="btnTeacher" >I'm a teacher</button>
       <button id="btnStudent">I'm a student</button>
+      <button id="btnReset">reset</button>
+      <div id="enterRoom">
+        <form id="formEnter">
+          <input id="txtEnterRoom" placeholder="Enter your teacher's room id" ></input>
+          <button id="btnEnterRoom">Enter Room</button>
+        </form>
+        <form id="formQuestion">
+          <input id="txtQuestion" placeholder="Ask an engaging question" class='txtInput'></input>
+          <button id="btnSubmitQuestion" class='btnSubmit'>Submit Question</button>
+        </form>
+
+        <form id="formAnswer">
+          <input id="txtAnswer" placeholder="Write an interesting answer" class='txtInput'></input>
+          <button id="btnSubmitAnswer" class='btnSubmit'>Submit Answer</button>
+        </form>
       
+    
+      </div>
     </div>
+
+    
     <p id="load">Firebase SDK Loading&hellip;</p>
 
     <script>
+      var db;
       document.addEventListener('DOMContentLoaded', function() {
         // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
         // // The Firebase SDK is initialized and available here!
@@ -52,7 +71,7 @@
         // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
         //
         // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
+        
         try {
           let app = firebase.app();
           let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
@@ -61,8 +80,12 @@
           console.error(e);
           document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
         }
+        db = firebase.firestore();
+
       });
+
+
     </script>
-    <script src="index.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>
