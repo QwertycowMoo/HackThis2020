@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="styles.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+    <title>Apingo Ngage</title>
 
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/7.17.2/firebase-app.js"></script>
@@ -45,15 +45,25 @@
       </div>
 
       <div id="teacher" class="default-hidden">
-        <h1 id="roomKey">Loading</h1>
+        <h1 id="roomKey" class="lbl">Loading</h1>
         <form id="formQuestion">
           <textarea id="txtQuestion" placeholder="Ask an engaging question" class='txtInput'></textarea>
-          <button id="btnSubmitQuestion" class='btnSubmit btn'>Submit Question</button>
+          <button id="btnSubmitQuestion" class="btnSubmit btn">Submit Question</button>
         </form>
+
+        <div id="question" class="default-hidden">
+          <h2 id="lblQuestion" class="lbl">Loading question....</h2>
+          <button id="btnNewQuestion" class="btnSubmit btn">New Question</button>
+        </div>
       </div>
         
       <div id="student" class="default-hidden">
-        <form id="formAnswer">
+        <form id="formName" class="default-hidden">
+          <input id="txtName" placeholder="Nickname" class="txtInput"></input>
+          <button id="btnName" class="btnSubmit btn">Go!</button>
+        </form>
+
+        <form id="formAnswer" class="default-hidden">
           <textarea id="txtAnswer" placeholder="Write an interesting answer" class='txtInput'></textarea>
           <button id="btnSubmitAnswer" class='btnSubmit btn'>Submit Answer</button>
         </form>
