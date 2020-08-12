@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Welcome to Firebase Hosting</title>
@@ -10,15 +10,13 @@
     <script defer src="/__/firebase/7.17.2/firebase-app.js"></script>
     <!-- include only the Firebase features as you need -->
     <script defer src="/__/firebase/7.17.2/firebase-firestore.js"></script>
-    <script defer src="/__/firebase/7.17.2/firebase-auth.js"></script>
     <!-- initialize the SDK after all desired features are loaded -->
     <script defer src="/__/firebase/init.js"></script>
 
     <style media="screen">
       body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; text-align: center; }
       #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
       #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
       #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
       #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
@@ -30,30 +28,38 @@
     </style>
   </head>
   <body>
-    <div id="message" class="dark-primary-color">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <button id="btnTeacher" >I'm a teacher</button>
-      <button id="btnStudent">I'm a student</button>
-      <button id="btnReset">reset</button>
-      <div id="enterRoom">
-        <form id="formEnter">
-          <input id="txtEnterRoom" placeholder="Enter your teacher's room id" ></input>
-          <button id="btnEnterRoom">Enter Room</button>
-        </form>
-        <form id="formQuestion">
-          <input id="txtQuestion" placeholder="Ask an engaging question" class='txtInput'></input>
-          <button id="btnSubmitQuestion" class='btnSubmit'>Submit Question</button>
-        </form>
-
-        <form id="formAnswer">
-          <input id="txtAnswer" placeholder="Write an interesting answer" class='txtInput'></input>
-          <button id="btnSubmitAnswer" class='btnSubmit'>Submit Answer</button>
-        </form>
-      
-    
+    <div id="message">
+      <h1 id="title" class = "title">Apingo</h1>
+      <div id="reset">
+        <button id="btnReset">reset</button>
       </div>
+
+        <button id="btnTeacher" class="btnStart btn">I'm a teacher</button>
+        <button id="btnStudent" class="btnStart btn">I'm a student</button>
+      
+      <div id="enterRoom" class="default-hidden">
+        <form id="formEnterRoom">
+          <input id="txtEnterRoom" placeholder="Enter the room key" class="txtInput"></input>
+          <button id="btnEnterRoom" class="btnStart btn">Enter Room</button>
+        </form>
+      </div>
+
+      <div id="teacher" class="default-hidden">
+        <h1 id="roomKey">Loading</h1>
+        <form id="formQuestion">
+          <textarea id="txtQuestion" placeholder="Ask an engaging question" class='txtInput'></textarea>
+          <button id="btnSubmitQuestion" class='btnSubmit btn'>Submit Question</button>
+        </form>
+      </div>
+        
+      <div id="student" class="default-hidden">
+        <form id="formAnswer">
+          <textarea id="txtAnswer" placeholder="Write an interesting answer" class='txtInput'></textarea>
+          <button id="btnSubmitAnswer" class='btnSubmit btn'>Submit Answer</button>
+        </form>
+      </div>
+        
+      
     </div>
 
     
@@ -75,7 +81,7 @@
         try {
           let app = firebase.app();
           let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+          document.getElementById('load').innerHTML = `Firebase SDK loaded`;
         } catch (e) {
           console.error(e);
           document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
