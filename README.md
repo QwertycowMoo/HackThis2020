@@ -5,4 +5,4 @@ Apingo is a tool to be used alongside online lectures with a smaller class size 
 
 # Use
 All functionality is hosted by Google Firebase Hosting, and the app can be accessed at https://apingo.web.app/
-The teacher is able to host a room that the students can join, and the teacher asks students questions while the students answer.
+The teacher is able to host a room that the students can join, and the teacher asks students questions while the students can answer.
