@@ -1,0 +1,169 @@
+@font-face{
+    font-family: Montserrat;
+    src: url(fonts/Montserrat/Montserrat-Medium.ttf);
+}
+@font-face{
+    font-family: BalooTamma2;
+    src: url(fonts/Baloo_Tamma_2/BalooTamma2-Medium.ttf)
+}
+
+li {
+    width: 100%;
+    list-style-type: none;
+    padding: 0px;
+    background-color: #ffeaaa;
+    border: 2px solid #3F51B5;
+    border-radius: 3px;
+}
+ul{
+    text-align: center;
+    padding: 0px;
+}
+
+
+.reg {
+    font-family: Montserrat;
+    padding: 10px;
+    margin: 3px;
+}
+
+.lbl{
+    font-family: Montserrat;
+    font-weight: 500;
+    margin: 5px;
+    padding: 1px;
+}
+#lblQuestion{
+    color: #303F9F
+}
+
+.txtInput {
+    height: 100px;
+    width: 85%;
+    background-color: #C5CAE9;
+    margin: 3px;
+    border-radius: 6px;
+    text-align: left;
+    font-family: Montserrat;
+    overflow-wrap: break-word;
+}
+.btnSubmit {
+    border-radius: 7px;
+    border: 1px solid #FFC107;
+    background-color: #303F9F;
+    color: #FFFFFF;
+    text-align: center;
+    box-shadow: 0 2px rgb(189, 189, 189);
+}
+.btnSubmit:hover {background-color: #1b2da0}
+
+.btnSubmit:active {
+  background-color: #1b2da0;
+  box-shadow: 0 2px #666;
+  transform: translateY(2px);
+}
+.btnStart {
+    padding: 15px 30px;
+    border-radius: 6px;
+    border: 2px solid #FFC107;
+    background-color: #303F9F;
+    color: #FFFFFF;
+    text-align: center;
+    width: 75%;
+    font-family: Montserrat;
+    box-shadow: 0 2px rgb(189, 189, 189);
+}
+.btnStart:hover {background-color: #1b2da0}
+
+.btnStart:active {
+  background-color: #1b2da0;
+  box-shadow: 0 2px #666;
+  transform: translateY(2px);
+}
+
+/*adding answers to the list*/
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+.flex-start {
+    display: flex;
+}
+.top-down{
+    flex-direction: column;
+    text-align: center;
+}
+.inflex {
+    align-self: center;
+}
+.ans-name {
+    font-size: smaller;
+    padding: 1px;
+    margin: 2px;
+}
+.ans-answer {
+    font-size: medium;
+    padding: 2px;
+}
+.div-ans-name{
+    text-align: left;
+    margin: 0px;
+}
+.div-ans-answer{
+    text-align: center;
+}
+.ion-icon{
+    width: 50px;
+    height: 50px;
+    color: #303F9F;
+    display: inline-block;
+    flex: 0 0 50px;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ion-icon:hover{
+    color: #1b2da0;
+    transform: rotate(20deg)
+}
+.ion-icon:active{
+    color: #FFC107;
+}
+.ul-div-ansname{
+    width: 80%;
+}
+#title{
+    font-family: BalooTamma2;
+    color: #FFC107;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#txtEnterRoom {
+    text-align: center;
+    height: 50px;
+    width: 150px;
+}
+#txtName{
+    height: 50px;
+    font-size: large;
+    text-align: center;
+}
+
+#ping{
+    width: 25%;
+}
+
+.default-hidden {
+    display: none;
+}
+
+
+
+.dark-primary-color    { background: #303F9F; }
+.default-primary-color { background: #3F51B5; }
+.light-primary-color   { background: #C5CAE9; }
+.text-primary-color    { color: #FFFFFF; }
+.accent-color          { background: #FFC107; }
+.primary-text-color    { color: #212121; }
+.secondary-text-color  { color: #757575; }
+.divider-color         { border-color: #BDBDBD; }
+
