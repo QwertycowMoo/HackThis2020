@@ -2,6 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Apingo Ngage</title>
@@ -13,10 +14,12 @@
     <!-- initialize the SDK after all desired features are loaded -->
     <script defer src="/__/firebase/init.js"></script>
 
+    <!-- ion-icons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>
     <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      body { background: #C5CAE9; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
       #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; text-align: center; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
       #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
       #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
       #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
@@ -30,50 +33,67 @@
   <body>
     <div id="message">
       <h1 id="title" class = "title">Apingo</h1>
-      <div id="reset">
-        <button id="btnReset">reset</button>
-      </div>
-
-        <button id="btnTeacher" class="btnStart btn">I'm a teacher</button>
-        <button id="btnStudent" class="btnStart btn">I'm a student</button>
+      
+        <button id="btnTeacher" class="btnStart reg">I'm a teacher</button>
+        <button id="btnStudent" class="btnStart reg">I'm a student</button>
       
       <div id="enterRoom" class="default-hidden">
         <form id="formEnterRoom">
           <input id="txtEnterRoom" placeholder="Enter the room key" class="txtInput"></input>
-          <button id="btnEnterRoom" class="btnStart btn">Enter Room</button>
+          <button id="btnEnterRoom" class="btnStart reg">Enter Room</button>
         </form>
       </div>
 
       <div id="teacher" class="default-hidden">
         <h1 id="roomKey" class="lbl">Loading</h1>
         <form id="formQuestion">
-          <textarea id="txtQuestion" placeholder="Ask an engaging question" class='txtInput'></textarea>
-          <button id="btnSubmitQuestion" class="btnSubmit btn">Submit Question</button>
+          <textarea id="txtQuestion" placeholder="Ask an engaging question!" class='txtInput'></textarea>
+          <button id="btnSubmitQuestion" class="btnSubmit reg">Submit Question</button>
         </form>
 
         <div id="question" class="default-hidden">
           <h2 id="lblQuestion" class="lbl">Loading question....</h2>
-          <button id="btnNewQuestion" class="btnSubmit btn">New Question</button>
+          <ul id="ulPinged-Answers"></ul>
+          <ul id="ulAnswers"></ul>
+          <button id="btnNewQuestion" class="btnSubmit reg">New Question</button>
         </div>
+
+        <button id="btnCloseRoom"class="btnSubmit reg">Close Room</button>
       </div>
         
       <div id="student" class="default-hidden">
         <form id="formName" class="default-hidden">
           <input id="txtName" placeholder="Nickname" class="txtInput"></input>
-          <button id="btnName" class="btnSubmit btn">Go!</button>
+          <button id="btnName" class="btnSubmit reg">Go!</button>
         </form>
-
-        <form id="formAnswer" class="default-hidden">
-          <textarea id="txtAnswer" placeholder="Write an interesting answer" class='txtInput'></textarea>
-          <button id="btnSubmitAnswer" class='btnSubmit btn'>Submit Answer</button>
-        </form>
-      </div>
         
+        <div id="divAnswer" class="default-hidden">
+          <h2 id="lblQuestionStudent" class="lbl">Loading question...</h2>
+            <div id="form-n-ping" class="flex">
+              <form id="formAnswer">
+                <textarea id="txtAnswer" placeholder="Write an interesting answer..." class='txtInput'></textarea>
+                <button id="btnSubmitAnswer" class='btnSubmit reg'>Submit Answer</button>
+                <h6 id="lblSubConfirm" class="lbl"></h6>
+                <div id="reset">
+                  <button id="btnReset" class="btnSubmit reg default-hidden">Go Back</button>
+                </div>
+              </form> 
+              <div id="ping" class="flex-start top-down">
+                <h6 class="lbl inflex">Question about your answer?</h6>
+                <ion-icon src="icons/bell.svg" class="ion-icon inflex" id="btn-ping-student"></ion-icon>
+              </div>
+            </div>        
+        </div>
+
+      </div>
+     
+
       
     </div>
 
     
     <p id="load">Firebase SDK Loading&hellip;</p>
+    <p id="load">Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></p>
 
     <script>
       var db;
@@ -100,8 +120,11 @@
 
       });
 
-
-    </script>
+          </script>
     <script src="app.js"></script>
   </body>
+
+  <footer>
+    
+  </footer>
 </html>
